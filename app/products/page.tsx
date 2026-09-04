@@ -1,0 +1,8 @@
+'use client'
+import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
+import { categories, products } from '@/lib/products'
+import { InnerFooter, InnerHeader, PageIntro } from '@/components/inner-shell'
+
+export default function ProductsPage() { const [active, setActive] = useState('All'); const filtered = active === 'All' ? products : products.filter((p) => p.category === active); return <main><InnerHeader/><PageIntro eyebrow="THE PRODUCT CATALOGUE" title="Built on" accent="quality." copy="Explore the components we can specify for your project. Enquiry-based catalogue only — no cart, checkout or payment."/><section className="section catalogue"><div className="category-nav" aria-label="Product categories">{categories.map((category) => <button key={category} className={active === category ? 'active' : ''} onClick={() => setActive(category)}>{category}</button>)}</div><div className="catalogue-heading"><p className="eyebrow">{active === 'All' ? 'ALL COMPONENTS' : active.toUpperCase()}</p><p>{filtered.length} products</p></div><div className="catalogue-grid">{filtered.map((product) => <article className="catalogue-card" key={product.slug}><img src={product.image} alt={product.name}/><div><p className="eyebrow">{product.category}</p><h3>{product.name}</h3><p className="brand-line">{product.brand}</p><p className="body-copy">{product.description}</p><div className="card-actions"><Link className="text-link dark" href={`/products/${product.slug}`}>View details <ArrowUpRight size={15}/></Link><Link className="button button-green" href="/#contact">Enquire now</Link></div></div></article>)}</div></section><InnerFooter/></main> }

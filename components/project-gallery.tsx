@@ -1,0 +1,5 @@
+'use client'
+import { useState } from 'react'
+import { X, ArrowLeft, ArrowRight } from 'lucide-react'
+import type { Project } from '@/lib/projects'
+export function ProjectGallery({ project }: { project: Project }) { const [index, setIndex] = useState(0); const current = project.images[index]; return <><div className="project-gallery"><button className="gallery-main" onClick={() => setIndex(index)} aria-label={`View ${current.alt}`}><img src={current.src} alt={current.alt}/></button><div className="gallery-thumbs">{project.images.map((image, i) => <button className={i === index ? 'selected' : ''} key={image.src} onClick={() => setIndex(i)} aria-label={`Show image ${i + 1}`}><img src={image.src} alt=""/></button>)}</div></div><div className="gallery-actions"><button onClick={() => setIndex((index - 1 + project.images.length) % project.images.length)} aria-label="Previous image"><ArrowLeft size={17}/></button><span>{String(index + 1).padStart(2, '0')} / {String(project.images.length).padStart(2, '0')}</span><button onClick={() => setIndex((index + 1) % project.images.length)} aria-label="Next image"><ArrowRight size={17}/></button></div></> }
