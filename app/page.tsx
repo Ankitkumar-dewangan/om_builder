@@ -313,7 +313,9 @@ export default function Page() {
         <div className="footer-top">
           <div className="footer-brand">
             <a className="brand" href="#top">
-              <span className="brand-mark"><Sun size={20} /></span>
+              <span className="brand-mark">
+                <img src="/Logo.jpeg" alt="OM SUNBUILD Logo" />
+              </span>
               <span>OM<br /><b>SUNBUILD</b></span>
             </a>
             <p>Thoughtful solar solutions<br />for a brighter tomorrow.</p>

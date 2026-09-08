@@ -97,24 +97,73 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
 
 .logo-badge-wrapper {
   position: relative;
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .logo-badge-glow {
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #fbbf24, #287a4b, #34d399);
+  background: linear-gradient(135deg, #fbbf24, #10b981, #f59e0b);
   opacity: 0.8;
-  filter: blur(6px);
-  transition: opacity 0.3s ease;
+  filter: blur(7px);
+  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 .brand-logo-container:hover .logo-badge-glow {
   opacity: 1;
-  filter: blur(8px);
+  filter: blur(10px);
+}
+
+.logo-image-box {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid rgba(251, 191, 36, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25), 0 0 10px rgba(251, 191, 36, 0.3);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.brand-logo-container:hover .logo-image-box {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35), 0 0 16px rgba(251, 191, 36, 0.55);
+}
+
+.logo-hover-zoom-badge {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(14, 42, 27, 0.72);
+  display: grid;
+  place-items: center;
+  color: #fbbf24;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
+.brand-logo-container:hover .logo-hover-zoom-badge {
+  opacity: 1;
+}
+
+.logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 22% !important;
+  transform: scale(1.22);
+  transition: transform 0.4s ease;
+}
+.brand-logo-container:hover .logo-img {
+  transform: scale(1.3);
 }
 
 .logo-icon-box {
@@ -136,6 +185,28 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
 .brand-logo-container:hover .logo-sun-icon {
   transform: rotate(90deg) scale(1.15);
   color: #fef08a;
+}
+
+.brand-mark {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border: 1.5px solid rgba(251, 191, 36, 0.85) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+}
+.brand-mark img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center 22% !important;
+  transform: scale(1.22);
 }
 
 .logo-text-box {
@@ -244,7 +315,7 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease-out;
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.75s ease-out;
   transform: scale(1.06);
   z-index: 1;
 }
@@ -276,6 +347,88 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
 .hero-content {
   position: relative;
   z-index: 10;
+}
+
+/* ANIMATED BRAND TAGLINE BANNER */
+.hero-tagline-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px 6px 10px;
+  margin-bottom: 22px;
+  border-radius: 9999px;
+  background: rgba(10, 37, 23, 0.85);
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 16px rgba(40, 122, 75, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  animation: taglineFloat 4s ease-in-out infinite;
+}
+
+@keyframes taglineFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.tagline-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #0e2a1b;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+  flex-shrink: 0;
+}
+
+.tagline-sun-spin {
+  animation: spinSlow 10s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animated-tagline-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(
+    90deg,
+    #fbbf24 0%,
+    #ffffff 25%,
+    #6ee7b7 50%,
+    #fbbf24 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: taglineTextShimmer 4s linear infinite;
+}
+
+@keyframes taglineTextShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.tagline-pill-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%);
+  animation: shimmerSweep 3.5s infinite;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  45%, 100% { transform: translateX(100%); }
 }
 
 .hero-eyebrow {
@@ -396,7 +549,7 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
   background: linear-gradient(90deg, #287a4b, #fbbf24, #34d399);
 }
 .progress-bar-fill.animating {
-  animation: progressTimer 5.5s linear infinite;
+  animation: progressTimer 2s linear infinite;
 }
 @keyframes progressTimer {
   from { width: 0%; }
@@ -429,9 +582,410 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
     display: flex;
   }
   .mobile-menu-btn { display: block; }
-  .hero-slider-section { min-height: 640px; }
-  .carousel-controls { right: 7vw; bottom: 25px; }
-  .slide-counter { left: 7vw; bottom: 25px; }
+  
+  /* MOBILE FULL SCREEN HERO SLIDER */
+  .hero-slider-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 100px 7vw 80px;
+    box-sizing: border-box;
+  }
+  .hero-content {
+    margin: 0;
+    max-width: 100%;
+    padding-bottom: 50px;
+  }
+  .hero-tagline-pill {
+    padding: 5px 12px 5px 8px;
+    margin-bottom: 14px;
+    max-width: 90vw;
+  }
+  .animated-tagline-text {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+  }
+  .hero-content h1,
+  .hero-title {
+    font-size: clamp(2.3rem, 8.5vw, 3.5rem);
+    line-height: 1.08;
+    margin: 12px 0 16px;
+  }
+  .hero-copy {
+    font-size: 13.5px;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+  .hero-actions {
+    margin-top: 22px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .carousel-controls {
+    right: 6vw;
+    bottom: 22px;
+    gap: 8px;
+  }
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .carousel-dots {
+    display: none;
+  }
+  .slide-counter {
+    left: 6vw;
+    bottom: 24px;
+  }
+}
+
+/* =======================================================
+   LAPTOP / DESKTOP REFINED HERO SLIDER STRUCTURE (ONLY LAPTOP)
+   ======================================================= */
+@media (min-width: 801px) {
+  .hero-slider-section {
+    min-height: 86vh;
+    height: 90vh;
+    max-height: 920px;
+    display: flex;
+    align-items: center;
+    padding: 110px 9vw 75px;
+    background: #081d13;
+  }
+
+  .hero-overlay-gradient {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 23, 14, 0.95) 0%,
+      rgba(7, 30, 19, 0.85) 44%,
+      rgba(7, 30, 19, 0.48) 72%,
+      rgba(5, 23, 14, 0.15) 100%
+    );
+  }
+
+  .hero-content {
+    max-width: 760px;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Tagline Pill on Laptop */
+  .hero-tagline-pill {
+    padding: 7px 18px 7px 10px;
+    margin-bottom: 20px;
+    background: rgba(11, 40, 26, 0.88);
+    border: 1px solid rgba(52, 211, 153, 0.55);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(40, 122, 75, 0.45);
+  }
+  .animated-tagline-text {
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  /* Slide Text Transition on Laptop */
+  .hero-slide-text-wrapper {
+    animation: desktopSlideFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes desktopSlideFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Eyebrow & Category Tag on Laptop */
+  .hero-eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 0 18px 0 !important;
+    padding: 0 !important;
+  }
+  .hero-tag-badge {
+    display: inline-block !important;
+    padding: 4px 13px !important;
+    border-radius: 9999px !important;
+    background: rgba(40, 122, 75, 0.5) !important;
+    border: 1px solid rgba(52, 211, 153, 0.6) !important;
+    color: #6ee7b7 !important;
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 0 14px rgba(40, 122, 75, 0.35) !important;
+  }
+  .hero-eyebrow-divider {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .hero-eyebrow-label {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.22em !important;
+    text-transform: uppercase !important;
+    color: #d1fae5 !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Structured Heading on Laptop */
+  .hero-content h1,
+  .hero-title {
+    font-size: clamp(3.2rem, 5vw, 4.6rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em !important;
+    font-weight: 600 !important;
+    margin: 0 0 20px 0 !important;
+    color: #ffffff !important;
+    max-width: 720px !important;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+  }
+  .hero-title-main {
+    display: inline-block;
+    color: #ffffff;
+  }
+  .hero-title-accent,
+  .hero-content h1 em {
+    display: inline-block !important;
+    background: linear-gradient(90deg, #6ee7b7 0%, #34d399 50%, #a7f3d0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    filter: drop-shadow(0 0 24px rgba(52, 211, 153, 0.4)) !important;
+  }
+
+  /* Copy Paragraph on Laptop */
+  .hero-content .hero-copy {
+    font-size: 16.5px !important;
+    line-height: 1.72 !important;
+    color: #e2ebe2 !important;
+    max-width: 550px !important;
+    margin: 0 0 32px 0 !important;
+    font-weight: 400 !important;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Action Buttons on Laptop */
+  .hero-content .hero-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 28px !important;
+    margin-top: 0 !important;
+  }
+  .hero-cta-btn {
+    min-height: 52px !important;
+    padding: 0 26px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    background: #287a4b !important;
+    box-shadow: 0 8px 25px rgba(40, 122, 75, 0.45) !important;
+    transition: all 0.3s ease !important;
+  }
+  .hero-cta-btn:hover {
+    background: #2f8e58 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(40, 122, 75, 0.6) !important;
+  }
+
+  /* Side Floating Badge on Laptop */
+  .hero-note {
+    position: absolute;
+    right: 7vw;
+    bottom: 120px;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: rgba(10, 39, 25, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Controls on Laptop */
+  .carousel-controls {
+    right: 7vw !important;
+    bottom: 45px !important;
+    gap: 16px !important;
+  }
+  .slide-counter {
+    left: 9vw !important;
+    bottom: 38px !important;
+  }
+}
+
+/* --- LOGO PREVIEW LIGHTBOX MODAL --- */
+.logo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(4, 20, 12, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: modalOverlayFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalOverlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.logo-modal-card {
+  position: relative;
+  max-width: 440px;
+  width: 100%;
+  background: linear-gradient(165deg, #0e2f1e 0%, #081d12 100%);
+  border: 1.5px solid rgba(52, 211, 153, 0.45);
+  border-radius: 1.5rem;
+  padding: 2.2rem 2rem 2rem;
+  text-align: center;
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.8), 0 0 45px rgba(40, 122, 75, 0.4);
+  animation: modalContentZoom 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalContentZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.logo-modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 5;
+}
+.logo-modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.85);
+  border-color: #ef4444;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.logo-modal-image-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0.5rem auto 1.4rem;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fbbf24;
+  box-shadow: 0 0 35px rgba(251, 191, 36, 0.55), inset 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-modal-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #10b981, #f59e0b);
+  opacity: 0.75;
+  filter: blur(14px);
+  z-index: -1;
+  animation: pulseGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { opacity: 0.5; filter: blur(10px); }
+  to { opacity: 0.95; filter: blur(18px); }
+}
+
+.logo-modal-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 50%;
+}
+
+.logo-modal-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.logo-modal-tagline {
+  font-size: 13.5px;
+  font-weight: 700;
+  margin: 8px 0 6px;
+  background: linear-gradient(90deg, #fbbf24, #34d399, #fbbf24);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.04em;
+  animation: taglineTextShimmer 4s linear infinite;
+}
+
+.logo-modal-sub {
+  font-size: 11px;
+  color: #9cb19e;
+  margin: 0 0 1.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.logo-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-modal-download-btn {
+  padding: 0 18px;
+  min-height: 42px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-modal-home-btn {
+  padding: 0 18px;
+  min-height: 42px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 

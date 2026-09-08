@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: 'OM SUNBUILD — Solar Solutions',
   description: 'Thoughtful solar solutions for homes, businesses and communities.',
   generator: 'v0.app',
+  icons: {
+    icon: '/Logo.jpeg',
+    shortcut: '/Logo.jpeg',
+    apple: '/Logo.jpeg',
+  },
 }
 
 export const viewport: Viewport = {

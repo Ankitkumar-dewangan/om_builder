@@ -67,7 +67,7 @@ export function HeroSlider() {
     if (isPaused) return
     const timer = setInterval(() => {
       nextSlide()
-    }, 5500)
+    }, 1700)
     return () => clearInterval(timer)
   }, [nextSlide, isPaused])
 
@@ -94,16 +94,32 @@ export function HeroSlider() {
 
       {/* Hero Content Overlay */}
       <div className="hero-content">
-        <p className="eyebrow light hero-eyebrow">
-          <span className="hero-tag-badge">{slides[current].tag}</span>
-          {slides[current].eyebrow}
-        </p>
-        <h1>
-          {slides[current].title}
-          <br />
-          <em>{slides[current].accent}</em>
-        </h1>
-        <p className="hero-copy">{slides[current].copy}</p>
+        {/* Animated Brand Tagline Banner */}
+        <div className="hero-tagline-pill" aria-label="Brand Tagline">
+          <span className="tagline-icon-wrap">
+            <Sun size={13} className="tagline-sun-spin" />
+          </span>
+          <span className="animated-tagline-text">
+            Power Your Future with Solar Energy
+          </span>
+          <span className="tagline-pill-glow" />
+        </div>
+
+        {/* Slide Text Content with smooth transition */}
+        <div key={current} className="hero-slide-text-wrapper">
+          <p className="eyebrow light hero-eyebrow">
+            <span className="hero-tag-badge">{slides[current].tag}</span>
+            <span className="hero-eyebrow-divider" aria-hidden="true">·</span>
+            <span className="hero-eyebrow-label">{slides[current].eyebrow}</span>
+          </p>
+          <h1 className="hero-title">
+            <span className="hero-title-main">{slides[current].title}</span>
+            <br className="hero-title-break" />
+            <em className="hero-title-accent">{slides[current].accent}</em>
+          </h1>
+          <p className="hero-copy">{slides[current].copy}</p>
+        </div>
+
         <div className="hero-actions">
           <a className="button button-green hero-cta-btn" href="#contact">
             <span>Get a free quote</span>
