@@ -66,6 +66,7 @@ export default function DisclaimerPage() {
       </ScrollReveal>
       </section>
 
+{/* / */}
       <InnerFooter />
     </main>
   )
