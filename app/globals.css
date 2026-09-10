@@ -1531,5 +1531,479 @@ footer { padding:58px 9vw 25px; background:var(--deep); color:white; }.footer-to
   }
 }
 
+/* --- SMOOTH MARQUEE ANIMATION (Right to Left) --- */
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-rtl 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-track > div {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+}
+
+.marquee-track > div:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 38px -10px rgba(25, 82, 50, 0.15), 0 0 0 1px rgba(40, 122, 75, 0.25) !important;
+  border-color: #a9c7a6 !important;
+}
+
+/* =========================================================================
+   FLOATING WHATSAPP BUTTON (LIVELY RADAR PULSE & HOVER ELEVATION)
+   ========================================================================= */
+.floating-whatsapp {
+  position: fixed !important;
+  z-index: 90 !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 54px !important;
+  height: 54px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #25d366, #128c7e) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.12) translateY(-3px) !important;
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.65), 0 4px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+.floating-whatsapp .wa-radar-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.85);
+  animation: waRadarPulse 2.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes waRadarPulse {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.95;
+  }
+  70% {
+    transform: scale(1.48);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.48);
+    opacity: 0;
+  }
+}
+
+/* =========================================================================
+   SMOOTH CARDS & IMAGES MICRO-INTERACTIONS
+   ========================================================================= */
+.solution-card,
+.product-card,
+.catalogue-card {
+  border-radius: 1.25rem !important;
+  overflow: hidden !important;
+  border: 1px solid #e2e8e0 !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease !important;
+  will-change: transform, box-shadow;
+}
+
+.solution-card:hover,
+.product-card:hover,
+.catalogue-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 22px 42px -12px rgba(18, 59, 40, 0.16), 0 0 0 1px rgba(40, 122, 75, 0.18) !important;
+  border-color: #b8ccb6 !important;
+}
+
+.solution-card img,
+.product-card img,
+.catalogue-card img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.solution-card:hover img,
+.product-card:hover img,
+.catalogue-card:hover img {
+  transform: scale(1.06) !important;
+}
+
+.arrow-link,
+.product-card a {
+  transition: all 0.25s ease !important;
+}
+
+.solution-card:hover .arrow-link,
+.product-card:hover a {
+  color: #123b28 !important;
+}
+
+.solution-card:hover .arrow-link svg,
+.product-card:hover a svg {
+  transform: translate(3px, -3px);
+  transition: transform 0.25s ease;
+}
+
+/* =========================================================================
+   PREMIUM BUTTON INTERACTIONS
+   ========================================================================= */
+.button {
+  position: relative !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, box-shadow;
+}
+
+.button:hover {
+  transform: translateY(-3px) !important;
+}
+
+.button-green:hover {
+  background: #1f6b40 !important;
+  box-shadow: 0 10px 25px -4px rgba(40, 122, 75, 0.45) !important;
+}
+
+.button-dark:hover {
+  background: #0d2c1e !important;
+  box-shadow: 0 10px 25px -4px rgba(14, 42, 27, 0.5) !important;
+}
+
+.button-light:hover {
+  background: #ffffff !important;
+  box-shadow: 0 10px 25px -4px rgba(255, 255, 255, 0.35) !important;
+}
+
+.button-outline:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #ffffff !important;
+  transform: translateY(-3px) !important;
+}
+
+.button:active {
+  transform: translateY(-1px) scale(0.98) !important;
+}
+
+.button svg,
+.text-link svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.button:hover svg,
+.text-link:hover svg {
+  transform: translate(3px, -3px) !important;
+}
+
+/* =========================================================================
+   PROCESS STEPS SMOOTH HOVER ANIMATION
+   ========================================================================= */
+.process-step {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: default;
+}
+
+.process-step:before {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              background 0.35s ease !important;
+}
+
+.process-step:hover:before {
+  transform: scale(1.4) !important;
+  background: #195232 !important;
+  box-shadow: 0 0 0 7px rgba(40, 122, 75, 0.22) !important;
+}
+
+.process-step svg {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease !important;
+}
+
+.process-step:hover svg {
+  transform: translateY(-4px) scale(1.1) !important;
+  color: #195232 !important;
+}
+
+.process-step:hover h3 {
+  color: #195232;
+  transition: color 0.25s ease;
+}
+
+/* =========================================================================
+   WHY SECTION POINTS INTERACTIVE GLIDE
+   ========================================================================= */
+.why-point {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.why-point:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.why-point svg {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s ease !important;
+}
+
+.why-point:hover svg {
+  transform: scale(1.25) !important;
+  color: #a7f3d0 !important;
+}
+
+/* =========================================================================
+   VIDEO SECTION PLAY BUTTON PULSE & HOVER
+   ========================================================================= */
+.play-button {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  animation: playButtonPulse 3s ease-in-out infinite !important;
+}
+
+@keyframes playButtonPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4), 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0), 0 10px 25px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.12) !important;
+  background: rgba(40, 122, 75, 0.9) !important;
+  border-color: #6ee7b7 !important;
+  box-shadow: 0 0 35px rgba(52, 211, 153, 0.6) !important;
+}
+
+/* =========================================================================
+   ABOUT & STORY IMAGES SMOOTH ZOOM
+   ========================================================================= */
+.about-photo,
+.story-large,
+.story-small {
+  overflow: hidden !important;
+  border-radius: 1.25rem !important;
+}
+
+.about-photo img,
+.story-large img,
+.story-small img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.about-photo:hover img,
+.story-large:hover img,
+.story-small:hover img {
+  transform: scale(1.04) !important;
+}
+
+.image-caption {
+  border-radius: 0.75rem !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+}
+
+.about-photo:hover .image-caption {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* =========================================================================
+   TRUST STRIP & BRANDS MICRO-INTERACTION
+   ========================================================================= */
+.trust-items span {
+  transition: all 0.3s ease !important;
+  cursor: default;
+}
+
+.trust-items span:hover {
+  transform: translateY(-2px);
+  color: var(--primary);
+}
+
+.trust-items span svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.trust-items span:hover svg {
+  transform: scale(1.25) rotate(5deg);
+}
+
+.brand-list span {
+  transition: all 0.35s ease !important;
+  cursor: pointer;
+}
+
+.brand-list span:hover {
+  color: var(--foreground) !important;
+  transform: scale(1.08) !important;
+}
+
+/* =========================================================================
+   ENQUIRY FORM INPUTS & FOCUS TRANSITIONS
+   ========================================================================= */
+.enquiry-form input,
+.enquiry-form textarea,
+.enquiry-form select {
+  transition: border-color 0.25s ease, padding-left 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.enquiry-form input:focus,
+.enquiry-form textarea:focus,
+.enquiry-form select:focus {
+  border-color: var(--primary) !important;
+  padding-left: 6px !important;
+  box-shadow: 0 1px 0 0 var(--primary) !important;
+}
+
+/* =========================================================================
+   SUPPORT GRID CARDS HOVER ELEVATION
+   ========================================================================= */
+.support-grid > * {
+  border-radius: 1rem !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease !important;
+}
+
+.support-grid > *:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 28px -6px rgba(18, 59, 40, 0.12) !important;
+  border-color: #b5c7b3 !important;
+}
+
+.support-grid > *:hover svg:last-child {
+  transform: translate(3px, -3px);
+  transition: transform 0.25s ease;
+}
+
+/* =========================================================================
+   PROJECT GRID SCROLL REVEAL INTEGRATION
+   ========================================================================= */
+.project-grid > :first-child,
+.first-project-box {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.project-grid .scroll-reveal-box {
+  height: 100%;
+}
+
+.project-grid .scroll-reveal-box > a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .project-grid > :first-child,
+  .first-project-box {
+    grid-row: auto;
+  }
+}
+
+/* =========================================================================
+   PREMIUM CARD HOVER ELEVATIONS & INTERACTIVE MOTION
+   ========================================================================= */
+.solution-card,
+.product-card,
+.catalogue-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.solution-card:hover,
+.product-card:hover,
+.catalogue-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 32px -8px rgba(18, 59, 40, 0.12) !important;
+}
+
+.solution-card img,
+.product-card img,
+.catalogue-card img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.solution-card:hover img,
+.product-card:hover img,
+.catalogue-card:hover img {
+  transform: scale(1.03) !important;
+}
+
+.why-point {
+  transition: background 0.3s ease, padding 0.3s ease !important;
+  border-radius: 0.5rem;
+  padding: 0 10px;
+}
+
+.why-point:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.value-grid article {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s ease !important;
+  border-radius: 0.75rem;
+  padding: 16px 12px;
+}
+
+.value-grid article:hover {
+  transform: translateY(-3px) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Prevent horizontal overflow from slide-ins */
+main,
+body {
+  overflow-x: clip !important;
+}
+
+/* =========================================================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal-box {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+}
 

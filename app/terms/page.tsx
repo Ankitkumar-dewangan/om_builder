@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { InnerHeader, PageIntro, InnerFooter } from '@/components/inner-shell'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { contact } from '@/lib/contact'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -21,7 +22,8 @@ export default function TermsPage() {
       />
 
       <section className="section py-16 px-[9vw] max-w-4xl mx-auto">
-        <div className="bg-white p-8 md:p-12 rounded-2xl border border-[#d9e0d8] shadow-sm text-[#17251d] space-y-8">
+        <ScrollReveal animation="fade-up" delay={80}>
+          <div className="bg-white p-8 md:p-12 rounded-2xl border border-[#d9e0d8] shadow-sm text-[#17251d] space-y-8">
           <div>
             <span className="text-[11px] font-bold tracking-wider text-[#287a4b] uppercase">Last Updated: January 1, 2026</span>
             <h2 className="text-2xl md:text-3xl font-semibold mt-2 mb-4">1. Scope of Website & Quotations</h2>
@@ -65,7 +67,7 @@ export default function TermsPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       <InnerFooter />

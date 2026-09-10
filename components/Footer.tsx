@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight, Mail, MapPin, Phone, MessageCircle, Sun, ShieldCheck } from 'lucide-react'
 import { contact, whatsappUrl } from '@/lib/contact'
+import { ScrollReveal } from '@/components/ScrollReveal'
 
 interface FooterProps {
   isInner?: boolean
@@ -85,30 +86,33 @@ export function Footer({ isInner = false }: FooterProps) {
     <footer className="om-footer" aria-label="Footer">
       <div className="om-footer-container">
         {/* SECTION 6: Integrated Subtle Call-to-Action */}
-        <section className="footer-cta-card" aria-label="Consultation Call to Action">
-          <div className="footer-cta-glow" aria-hidden="true" />
-          <div className="footer-cta-content">
-            <div className="footer-cta-badge">
-              <Sun size={13} className="text-amber-400" />
-              <span>POWER YOUR ENERGY TRANSITION</span>
+        <ScrollReveal animation="fade-up">
+          <section className="footer-cta-card" aria-label="Consultation Call to Action">
+            <div className="footer-cta-glow" aria-hidden="true" />
+            <div className="footer-cta-content">
+              <div className="footer-cta-badge">
+                <Sun size={13} className="text-amber-400" />
+                <span>POWER YOUR ENERGY TRANSITION</span>
+              </div>
+              <h2 className="footer-cta-title">
+                Ready to switch to solar?
+              </h2>
+              <p className="footer-cta-desc">
+                Let&apos;s build a smarter energy future together. Consult our certified solar specialists for a tailored analysis of your site and savings potential.
+              </p>
             </div>
-            <h2 className="footer-cta-title">
-              Ready to switch to solar?
-            </h2>
-            <p className="footer-cta-desc">
-              Let&apos;s build a smarter energy future together. Consult our certified solar specialists for a tailored analysis of your site and savings potential.
-            </p>
-          </div>
-          <div className="footer-cta-action">
-            <Link href={ctaLink} className="footer-cta-btn">
-              <span>Get a Free Consultation</span>
-              <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </div>
-        </section>
+            <div className="footer-cta-action">
+              <Link href={ctaLink} className="footer-cta-btn">
+                <span>Get a Free Consultation</span>
+                <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </section>
+        </ScrollReveal>
 
         {/* MAIN 4-COLUMN FOOTER CONTENT */}
-        <div className="footer-main-grid">
+        <ScrollReveal animation="fade-up" delay={120}>
+          <div className="footer-main-grid">
           {/* SECTION 1: Branding Section */}
           <div className="footer-col footer-col-brand">
             <Link href="/" className="footer-brand-header" title="OM SUNBUILD — Return to Home">
@@ -251,6 +255,7 @@ export function Footer({ isInner = false }: FooterProps) {
             </div>
           </div>
         </div>
+      </ScrollReveal>
 
         {/* DIVIDER */}
         <div className="footer-divider" />
