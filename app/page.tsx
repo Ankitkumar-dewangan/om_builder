@@ -7,6 +7,9 @@ import { projects as projectData } from '@/lib/projects'
 import { Header } from '@/components/Header'
 import { HeroSlider } from '@/components/HeroSlider'
 import { ScrollReveal } from '@/components/ScrollReveal'
+import { Footer } from '@/components/Footer'
+import { EnquiryForm } from '@/components/enquiry-form'
+import { contact } from '@/lib/contact'
 
 const solutions = [
   ['01', 'Residential solar', 'Thoughtful rooftop systems designed around the way your home uses energy.', 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=85'],
@@ -21,7 +24,6 @@ const products = [
 const steps = ['Consultation', 'Site assessment', 'System planning', 'Installation', 'Testing & handover', 'Support']
 
 export default function Page() {
-  const [submitted, setSubmitted] = useState(false)
 
   return (
     <main>
@@ -270,81 +272,16 @@ export default function Page() {
             <h2>Let&apos;s talk<br /><em>solar.</em></h2>
             <p>Have a question, a project in mind or just want to understand your options? We&apos;d love to hear from you.</p>
             <div className="contact-details">
-              <a href="tel:+910000000000"><small>CALL US</small>+91 00000 00000</a>
-              <a href="mailto:hello@omsunbuild.com"><small>EMAIL US</small>hello@omsunbuild.com</a>
-              <span><small>FIND US</small>Your city, India</span>
+              <a href={contact.phoneHref}><small>CALL US</small>{contact.phone}</a>
+              <a href={`mailto:${contact.email}`}><small>EMAIL US</small>{contact.email}</a>
+              <span><small>FIND US</small>{contact.address}</span>
             </div>
           </div>
-          <form className="enquiry-form" onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}>
-            {submitted ? (
-              <div className="form-success">
-                <Check size={30} />
-                <h3>Thank you.</h3>
-                <p>We&apos;ll be in touch soon.</p>
-                <button type="button" className="text-link dark" onClick={() => setSubmitted(false)}>Send another enquiry</button>
-              </div>
-            ) : (
-              <>
-                <div className="form-title">
-                  <span>01</span>
-                  <h3>Tell us about your project</h3>
-                </div>
-                <label>Name<input required placeholder="Your name" /></label>
-                <label>Mobile number<input required type="tel" placeholder="+91 00000 00000" /></label>
-                <label>Email address<input type="email" placeholder="you@email.com" /></label>
-                <label>What can we help with?
-                  <select defaultValue="">
-                    <option value="" disabled>Select an option</option>
-                    <option>Residential solar</option>
-                    <option>Commercial solar</option>
-                    <option>Industrial solar</option>
-                    <option>Something else</option>
-                  </select>
-                </label>
-                <label>Message<textarea placeholder="A little about your project..." rows={3} /></label>
-                <button className="button button-green form-submit" type="submit">Send enquiry <ArrowUpRight size={17} /></button>
-              </>
-            )}
-          </form>
+          <EnquiryForm />
         </section>
       </ScrollReveal>
 
-      <footer>
-        <div className="footer-top">
-          <div className="footer-brand">
-            <a className="brand" href="#top">
-              <span className="brand-mark">
-                <img src="/Logo.jpeg" alt="OM SUNBUILD Logo" />
-              </span>
-              <span>OM<br /><b>SUNBUILD</b></span>
-            </a>
-            <p>Thoughtful solar solutions<br />for a brighter tomorrow.</p>
-          </div>
-          <div>
-            <p className="footer-label">EXPLORE</p>
-            <a href="#about">About us</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#products">Products</a>
-            <a href="#our-work">Our work</a>
-          </div>
-          <div>
-            <p className="footer-label">GET IN TOUCH</p>
-            <a href="tel:+910000000000">+91 00000 00000</a>
-            <a href="mailto:hello@omsunbuild.com">hello@omsunbuild.com</a>
-            <span>Your city, India</span>
-          </div>
-          <div>
-            <p className="footer-label">FOLLOW ALONG</p>
-            <a href="#top">Instagram <ArrowUpRight size={13} /></a>
-            <a href="#top">Facebook <ArrowUpRight size={13} /></a>
-            <a href="https://wa.me/919109838902?text=Hello%20OM%20SUNBUILD%2C%20I%20would%20like%20to%20discuss%20a%20solar%20solution.">WhatsApp <ArrowUpRight size={13} /></a>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2025 OM SUNBUILD. All rights reserved.</span>
-          <span>Solar solutions, thoughtfully built.</span>
-        </div>
-      </footer>
+      <Footer isInner={false} />
 
       <a className="floating-whatsapp" href="https://wa.me/919109838902?text=Hello%20OM%20SUNBUILD%2C%20I%20would%20like%20to%20discuss%20a%20solar%20solution." aria-label="Chat on WhatsApp">WA</a>
     </main>

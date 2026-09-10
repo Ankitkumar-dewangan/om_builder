@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowUpRight, Download, Eye, Menu, Sparkles, X } from 'lucide-react'
+import { ArrowUpRight, Download, Eye, Menu, Sparkles, X, LogIn } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -89,8 +89,8 @@ export function Header({ isInner = false }: HeaderProps) {
                 <Image
                   src="/Logo.jpeg"
                   alt="OM SUNBUILD Logo"
-                  width={48}
-                  height={48}
+                  width={28}
+                  height={28}
                   className="logo-img"
                   priority
                 />
@@ -101,11 +101,10 @@ export function Header({ isInner = false }: HeaderProps) {
             </div>
             <div className="logo-text-box">
               <div className="logo-title-row">
-                <span className="logo-om-text">OM</span>
-                <span className="logo-badge-tag">SOLAR</span>
+                <span className="logo-om-text">OM SUNBUILD</span>
               </div>
               <span className="text-[11px] font-bold tracking-[0.24em] uppercase text-emerald-100">
-                SUNBUILD
+                SOLAR SOLUTIONS
               </span>
             </div>
           </div>
@@ -124,12 +123,13 @@ export function Header({ isInner = false }: HeaderProps) {
             </Link>
           ))}
           <Link
-            className="nav-cta-button"
-            href={isInner ? '/#contact' : '#contact'}
+            href="/login"
             onClick={() => setMenuOpen(false)}
+            className="nav-cta-button"
+            title="Admin Login Portal"
           >
-            <span>Get a free quote</span>
-            <ArrowUpRight size={15} />
+            <LogIn size={15} />
+            <span>Login</span>
           </Link>
         </nav>
 
