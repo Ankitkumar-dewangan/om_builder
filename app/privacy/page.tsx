@@ -68,7 +68,8 @@ export default function PrivacyPolicyPage() {
               </Link>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
+      </ScrollReveal>
       </section>
 
       <InnerFooter />

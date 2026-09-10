@@ -62,7 +62,8 @@ export default function DisclaimerPage() {
               </Link>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
+      </ScrollReveal>
       </section>
 
       <InnerFooter />

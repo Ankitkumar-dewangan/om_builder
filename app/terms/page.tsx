@@ -67,7 +67,8 @@ export default function TermsPage() {
               </Link>
             </div>
           </div>
-        </ScrollReveal>
+        </div>
+      </ScrollReveal>
       </section>
 
       <InnerFooter />
