@@ -83,7 +83,8 @@ export function Footer({ isInner = false }: FooterProps) {
   ]
 
   return (
-    <footer className="om-footer" aria-label="Footer">
+    <>
+      <footer className="om-footer" aria-label="Footer">
       <div className="om-footer-container">
         {/* SECTION 6: Integrated Subtle Call-to-Action */}
         <ScrollReveal animation="fade-up">
@@ -291,5 +292,20 @@ export function Footer({ isInner = false }: FooterProps) {
         </div>
       </div>
     </footer>
+
+      {/* DISTINCT LIGHT BLUE BOTTOM BAR: Powered by AGP Empire */}
+      <div className="footer-agp-bar" aria-label="Attribution">
+        <div className="footer-agp-inner">
+          <p className="footer-agp-text">
+            <span className="agp-powered-by">Powered by</span>{' '}
+            <strong className="footer-agp-brand">
+              <span className="agp-letter-a">A</span>
+              <span className="agp-letter-gp">GP</span>{' '}
+              <span className="agp-word-empire">Empire</span>
+            </strong>
+          </p>
+        </div>
+      </div>
+    </>
   )
 }

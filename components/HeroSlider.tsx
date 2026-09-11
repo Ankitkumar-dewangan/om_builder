@@ -67,7 +67,7 @@ export function HeroSlider() {
     if (isPaused) return
     const timer = setInterval(() => {
       nextSlide()
-    }, 4500)
+    }, 1700)
     return () => clearInterval(timer)
   }, [nextSlide, isPaused])
 

@@ -107,13 +107,14 @@ export function AdminShell({ children, user }: AdminShellProps) {
       {/* STRICTLY FIXED SIDEBAR (Desktop Fixed + Mobile Slide Drawer)              */}
       {/* ========================================================================= */}
       <aside
-        className={`fixed md:sticky top-0 left-0 bottom-0 z-50 w-72 md:w-64 h-[100dvh] md:h-screen max-h-screen flex-shrink-0 bg-white border-r border-[#d9e0d8] flex flex-col justify-between transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-          } shadow-2xl md:shadow-none select-none overflow-y-auto`}
+        className={`fixed md:sticky top-0 left-0 bottom-0 z-50 w-72 md:w-64 h-[100dvh] md:h-screen max-h-screen flex-shrink-0 bg-white border-r border-[#d9e0d8] flex flex-col justify-between transition-transform duration-300 ease-in-out ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+        } shadow-2xl md:shadow-none select-none`}
       >
-        {/* Top: Brand Logo + Nav Menu */}
-        <div className="flex flex-col">
+        {/* Top: Brand Logo + Nav Menu (Internally scrollable if viewport height is compact) */}
+        <div className="flex flex-col flex-1 min-h-0 overflow-y-auto">
           {/* Brand Header */}
-          <div className="h-20 px-5 flex items-center justify-between border-b border-[#eef0e8]">
+          <div className="h-20 px-5 flex items-center justify-between border-b border-[#eef0e8] flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#287a4b] to-[#195232] p-0.5 shadow-sm flex-shrink-0">
                 <div className="w-full h-full rounded-[10px] bg-white flex items-center justify-center overflow-hidden p-0.5">
@@ -188,7 +189,7 @@ export function AdminShell({ children, user }: AdminShellProps) {
         </div>
 
         {/* Bottom: Logout & User Profile */}
-        <div className="p-3.5 border-t border-[#eef0e8] flex flex-col gap-2.5 bg-white">
+        <div className="flex-shrink-0 p-3.5 border-t border-[#eef0e8] flex flex-col gap-2.5 bg-white">
           {/* Logout Action */}
           <button
             type="button"
@@ -278,42 +279,33 @@ export function AdminShell({ children, user }: AdminShellProps) {
         </header>
 
         {/* Scrollable Page Body - ONLY THIS CONTAINER SCROLLS */}
-        <main className="flex-1 overflow-y-auto overscroll-contain p-3.5 sm:p-6 md:p-8 pb-24 md:pb-8">
+        <main className="flex-1 overflow-y-auto overscroll-contain p-3.5 sm:p-6 md:p-8">
           <div className="max-w-7xl mx-auto space-y-6">
             {children}
           </div>
         </main>
 
         {/* ========================================================================= */}
-        {/* MOBILE STRICTLY FIXED BOTTOM DOCK (Always Fixed on Mobile)                 */}
+        {/* COMPACT AUTHENTICATED BRANDING BAR (Beside sidebar on desktop, footer on mobile) */}
         {/* ========================================================================= */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#d9e0d8] px-3 py-2 flex items-center justify-around shadow-lg">
-          {navItems.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== '/admin/dashboard' && pathname.startsWith(item.href))
-            const Icon = item.icon
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex flex-col items-center gap-1 py-1 px-4 rounded-xl text-[11px] font-bold transition-all ${isActive
-                    ? 'text-[#195232]'
-                    : 'text-[#68746b] hover:text-[#17251d]'
-                  }`}
-              >
-                <div
-                  className={`p-1.5 rounded-xl transition-all ${isActive ? 'bg-[#e8f5ee] text-[#195232]' : 'text-[#68746b]'
-                    }`}
-                >
-                  <Icon size={19} strokeWidth={isActive ? 2.5 : 2} />
-                </div>
-                <span className="text-[10px] tracking-tight">{item.name}</span>
-              </Link>
-            )
-          })}
-        </nav>
+        <div
+          style={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0' }}
+          className="h-10 border-t flex items-center justify-center flex-shrink-0 z-30 px-4 select-none shadow-[0_-1px_3px_rgba(0,0,0,0.02)]"
+        >
+          {/* Centered "Powered by AGP Empire" Branding */}
+          <div className="group inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f8fafc] hover:bg-[#f1f5f9] border border-[#e2e8f0] hover:border-[#cbd5e1] transition-all duration-200 cursor-default shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c]/80 group-hover:bg-[#ea580c] transition-colors" />
+            <span className="text-[10px] font-semibold tracking-wider text-[#64748b] uppercase">
+              Powered by
+            </span>
+            <span className="h-3 w-px bg-[#cbd5e1]" />
+            <span className="font-extrabold text-[12px] tracking-[0.09em] uppercase">
+              <span className="text-[#ea580c] group-hover:brightness-110 transition-all">A</span>
+              <span className="text-[#64748b] group-hover:text-[#475569] transition-colors">GP</span>{' '}
+              <span className="text-[#ea580c] group-hover:brightness-110 transition-all">Empire</span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -62,7 +62,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center bg-[#f7f8f4] text-[#17251d] font-sans p-4 sm:p-6">
+    <div className="relative min-h-screen w-full flex flex-col items-center justify-center bg-[#f7f8f4] text-[#17251d] font-sans p-4 sm:p-6">
       {/* Background Soft Green Glow Accents (Website Solar Theme) */}
       <div className="absolute top-0 inset-x-0 h-72 bg-gradient-to-b from-[#e8f5ee] via-[#f7f8f4] to-transparent pointer-events-none" />
       <div className="absolute top-10 right-1/4 w-80 h-80 bg-[#d9efc5]/30 rounded-full blur-3xl pointer-events-none" />
@@ -210,6 +210,30 @@ export default function LoginPage() {
           <span className="text-[11px] text-[#68746b]">OM SUNBUILD © 2026</span>
         </div>
       </div>
+
+      {/* Highlighted Small Badge: Powered by AGP Empire */}
+    <div className="relative z-10 mt-5 flex justify-center">
+  <div className="group inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-[#cfe5d7] shadow-[0_3px_12px_rgba(18,59,40,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_18px_rgba(18,59,40,0.12)]">
+
+    <span className="relative flex h-1.5 w-1.5">
+      <span className="absolute inline-flex h-full w-full rounded-full bg-[#e76f3c] opacity-40 animate-ping" />
+      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#e45f32]" />
+    </span>
+
+    <span className="text-[10px] font-medium tracking-wide text-[#718078] uppercase">
+      Powered by
+    </span>
+
+    <span className="h-3 w-px bg-[#cfe5d7]" />
+
+    <span className="font-extrabold text-[11px] tracking-[0.12em] uppercase">
+      <span className="text-[#e45f32]">A</span>
+      <span className="text-[#7b8580]">GP</span>{" "}
+      <span className="text-[#e45f32]">Empire</span>
+    </span>
+
+  </div>
+</div>
     </div>
   )
 }

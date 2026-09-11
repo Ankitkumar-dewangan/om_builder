@@ -11,6 +11,9 @@ import { AnimatedCounter } from '@/components/AnimatedCounter'
 import { TrustedBrands } from '@/components/TrustedBrands'
 import { Footer } from '@/components/Footer'
 import { EnquiryForm } from '@/components/enquiry-form'
+import { PmSuryaGharBanner } from '@/components/PmSuryaGharBanner'
+import { PmSuryaGharBenefits } from '@/components/PmSuryaGharBenefits'
+import { ProcessTimeline } from '@/components/ProcessTimeline'
 import { contact } from '@/lib/contact'
 
 const solutions = [
@@ -174,6 +177,17 @@ export default function Page() {
         </ScrollReveal>
       </section>
 
+      {/* PM Surya Ghar Muft Bijli Yojana Section */}
+      <section id="pm-surya-ghar" className="pm-solar-section relative w-full overflow-hidden">
+        <PmSuryaGharBanner />
+      </section>
+      
+
+      {/* PM Surya Ghar Subsidy Benefits Section */}
+      <section id="subsidy-benefits" className="benefits-section relative w-full overflow-hidden">
+        <PmSuryaGharBenefits />
+      </section>
+
       {/* Solutions Section: Staggered Cards Reveal */}
       <section id="solutions" className="section solutions">
         <ScrollReveal animation="fade-up">
@@ -306,31 +320,8 @@ export default function Page() {
         </ScrollReveal>
       </section>
 
-      {/* How It Works Process: Staggered Steps */}
-      <section className="section process">
-        <ScrollReveal animation="fade-up">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">HOW IT WORKS</p>
-              <h2>A clear path<br /><em>to solar.</em></h2>
-            </div>
-            <p className="heading-intro">No guesswork. No unnecessary complexity. Just a straightforward process, guided by people who know what they are doing.</p>
-          </div>
-        </ScrollReveal>
-        <div className="process-line">
-          {steps.map((step, i) => (
-            <ScrollReveal key={step} animation="fade-up" delay={i * 80}>
-              <div className="process-step">
-                <span>{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <Zap size={18} />
-                  <h3>{step}</h3>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
+      {/* How It Works Process: Modern Connecting Wave Timeline */}
+      <ProcessTimeline />
 
       {/* ========================================================================= */}
       {/* QUALITY COMPONENTS · TRUSTED BRANDS (From Reference Image)                */}
